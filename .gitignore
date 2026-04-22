@@ -10,6 +10,10 @@ venv/
 env/
 ENV/
 
+# uv
+# Uncomment the next line if you decide NOT to commit the lock file
+# uv.lock
+
 # Distribution / packaging
 build/
 dist/

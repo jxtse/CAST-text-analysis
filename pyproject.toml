@@ -1,0 +1,87 @@
+[project]
+name = "cast-text-analysis"
+version = "1.0.0"
+description = "CAST: Achieving Stable LLM-based Text Analysis for Data Analytics (ACL 2026)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Jinxiang Xie" },
+    { name = "Zihao Li" },
+    { name = "Wei He" },
+    { name = "Rui Ding", email = "juding@microsoft.com" },
+    { name = "Shi Han" },
+    { name = "Dongmei Zhang" },
+]
+keywords = [
+    "llm",
+    "text-analysis",
+    "data-analytics",
+    "prompt-engineering",
+    "stability",
+    "summarization",
+    "tagging",
+    "acl2026",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Core runtime dependencies for the summarization + tagging pipelines.
+dependencies = [
+    # LLM clients
+    "openai>=1.40.0",
+    "google-genai>=0.3.0",
+    # Data + numerics
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "scikit-learn>=1.3",
+    "openpyxl>=3.1",
+    # Plotting
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+    # Utilities
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+# Heavy extras only needed for distribution_analysis_pipeline.py
+distribution = [
+    "sentence-transformers>=2.2",
+    "umap-learn>=0.5",
+]
+# Development / notebook tooling
+dev = [
+    "jupyter",
+    "ipykernel",
+]
+# Convenience: install everything
+all = [
+    "cast-text-analysis[distribution,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/jxtse/CAST-text-analysis"
+Repository = "https://github.com/jxtse/CAST-text-analysis"
+Issues = "https://github.com/jxtse/CAST-text-analysis/issues"
+"arXiv" = "https://arxiv.org/abs/2602.15861"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# This project ships research code (top-level summarization/ and tagging/
+# folders), not an importable Python package. Tell hatchling not to look for
+# one so `uv sync` / `pip install -e .` work without complaining.
+[tool.hatch.build.targets.wheel]
+bypass-selection = true

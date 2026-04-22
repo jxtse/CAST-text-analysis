@@ -102,21 +102,27 @@ brew install uv      # macOS
 git clone https://github.com/jxtse/CAST-text-analysis.git
 cd CAST-text-analysis
 
-uv venv --python 3.11           # create .venv with Python 3.11
+uv sync                         # creates .venv and installs core dependencies
 source .venv/bin/activate       # Windows: .venv\Scripts\activate
-uv pip install -r requirements.txt
 ```
 
-> Python ≥ 3.9 is supported. `sentence-transformers` and `umap-learn` are
-> only needed if you run `distribution_analysis_pipeline.py`.
+Need the heavy distribution-analysis extras
+(`sentence-transformers`, `umap-learn`)? Add the optional group:
+
+```bash
+uv sync --extra distribution    # or: --extra all
+```
+
+> Python ≥ 3.9 is supported (defaults to 3.12 via `uv`).
 
 <details>
 <summary>Prefer plain pip?</summary>
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate       # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+source .venv/bin/activate                       # Windows: .venv\Scripts\activate
+pip install -e .                                 # core dependencies
+pip install -e ".[distribution]"                 # optional: distribution-analysis extras
 ```
 
 </details>
