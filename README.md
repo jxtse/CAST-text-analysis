@@ -61,6 +61,13 @@ stability among all baselines, improving the Stability Score by up to
 │   ├── AP.md / TbS.md / AP+TbS.md / none.md   # Prompt variants
 │   └── CombinedDataset.xlsx       # Tagging dataset
 │
+├── data/                          # Human annotations + supplementary data
+│   ├── README.md                  # See for full file-by-file description
+│   ├── human_annotations/
+│   │   ├── summarization/         # h1 / j2 / z3 stability score JSONs
+│   │   └── tagging/               # h1 / j1 / j2 annotators × 4 prompts
+│   └── supplementary/             # Additional input datasets
+│
 ├── requirements.txt
 ├── .env.example                   # Copy to .env and fill in API keys
 ├── LICENSE                        # MIT
@@ -172,6 +179,10 @@ The reference outputs that back the figures and tables in the paper live under
 - `correlation_analysis.py` — Pearson/Spearman correlation between the two
 - `stability_correlation_analysis_overall.png`,
   `stability_correlation_analysis_pair.png` — corresponding figures
+
+The per-annotator raw inputs that produced the anonymized merge above are in
+[`data/human_annotations/`](data/README.md), together with the human tagging
+annotations and supplementary multilingual datasets.
 
 To regenerate the correlation figures:
 
