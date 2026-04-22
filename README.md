@@ -7,6 +7,7 @@ Official code, prompts, and data for our **ACL 2026** paper:
 > *ACL 2026*  
 > \*Equal contribution. †Corresponding author.
 
+[![arXiv](https://img.shields.io/badge/arXiv-2602.15861-b31b1b.svg)](https://arxiv.org/abs/2602.15861)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
@@ -198,13 +199,19 @@ python correlation_analysis.py
 If CAST or CAST-S/CAST-T are useful in your work, please cite:
 
 ```bibtex
-@inproceedings{xie2026cast,
-  title     = {CAST: Achieving Stable LLM-based Text Analysis for Data Analytics},
-  author    = {Xie, Jinxiang and Li, Zihao and He, Wei and Ding, Rui and Han, Shi and Zhang, Dongmei},
-  booktitle = {Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL)},
-  year      = {2026}
+@misc{xie2026castachievingstablellmbased,
+  title         = {CAST: Achieving Stable LLM-based Text Analysis for Data Analytics},
+  author        = {Jinxiang Xie and Zihao Li and Wei He and Rui Ding and Shi Han and Dongmei Zhang},
+  year          = {2026},
+  eprint        = {2602.15861},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2602.15861}
 }
 ```
+
+The ACL Anthology entry will be linked here once the proceedings are
+published. See [`paper/`](paper/) for build notes on the arXiv submission.
 
 ---
 
