@@ -58,12 +58,11 @@ python correlation_analysis.py
 ## `human_annotations/tagging/`
 
 Three annotators (`h1` = hewei, `j1`, `j2` = jinxiang) independently labeled
-the **`Amazon_100_label`** sheet of `CombinedDataset.xlsx` after running each
+the **`Amazon_100_label`** sheet of the tagging dataset after running each
 prompt variant. The folder layout per annotator is:
 
 ```
 annotator_<id>/
-├── CombinedDataset_with_annotations.xlsx   # full dataset + annotator-edited Amazon_100_label sheet
 ├── AP/        Amazon_100_0_results.xlsx,  Amazon_100_1_results.xlsx
 ├── AP+TbS/    Amazon_100_0_results.xlsx,  Amazon_100_1_results.xlsx
 ├── TbS/       Amazon_100_00_results.xlsx, Amazon_100_1_results.xlsx
@@ -74,10 +73,10 @@ annotator_<id>/
 of the same prompt variant on the `Amazon_100` data, used to measure
 run-to-run stability against the human reference labels.
 
-> All three `CombinedDataset_with_annotations.xlsx` files share the same set
-> of sheets as the master `tagging/CombinedDataset.xlsx`; only the
-> `Amazon_100_label` sheet differs across annotators (their respective
-> annotations).
+> The shared input dataset (`CombinedDataset.xlsx`) and the per-annotator
+> annotated copies have been removed from this public release because they
+> contained sensitive material. Bring your own dataset with the same column
+> layout to reproduce the pipeline.
 
 `tagging/evaluation.ipynb` is the notebook used to aggregate these
 annotations into the tagging stability metrics reported in the paper.

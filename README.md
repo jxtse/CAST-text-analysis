@@ -59,8 +59,7 @@ stability among all baselines, improving the Stability Score by up to
 ├── tagging/                       # Tagging (CAST-T) experiments
 │   ├── program.py                 # Tagging pipeline
 │   ├── evaluation.ipynb           # Evaluation / analysis notebook
-│   ├── AP.md / TbS.md / AP+TbS.md / none.md   # Prompt variants
-│   └── CombinedDataset.xlsx       # Tagging dataset
+│   └── AP.md / TbS.md / AP+TbS.md / none.md   # Prompt variants
 │
 ├── data/                          # Human annotations + supplementary data
 │   ├── README.md                  # See for full file-by-file description
@@ -196,9 +195,10 @@ cd tagging
 python program.py
 ```
 
-> Note: the default `dataset_path` in `program.py` is
-> `Output/Stability/CombinedDataset.xlsx`. The dataset shipped here lives at
-> `tagging/CombinedDataset.xlsx`; either move/symlink it or edit the path.
+> Note: the `dataset_path` referenced in `program.py` points to the
+> tagging dataset, which has been removed from this public release because
+> it contained sensitive material. Replace it with your own input file using
+> the same column layout to reproduce the pipeline.
 
 Then open `evaluation.ipynb` for the post-hoc tagging analysis.
 
