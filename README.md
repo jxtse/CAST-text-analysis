@@ -79,21 +79,49 @@ stability among all baselines, improving the Stability Score by up to
 
 ## Setup
 
-### 1. Clone & install
+We recommend [`uv`](https://docs.astral.sh/uv/) for Python environment and
+dependency management (it is significantly faster than `pip` + `venv`).
+
+### 1. Install `uv`
+
+```bash
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# or via pipx / Homebrew
+pipx install uv      # any platform
+brew install uv      # macOS
+```
+
+### 2. Clone & install dependencies
 
 ```bash
 git clone https://github.com/jxtse/CAST-text-analysis.git
 cd CAST-text-analysis
 
+uv venv --python 3.11           # create .venv with Python 3.11
+source .venv/bin/activate       # Windows: .venv\Scripts\activate
+uv pip install -r requirements.txt
+```
+
+> Python ≥ 3.9 is supported. `sentence-transformers` and `umap-learn` are
+> only needed if you run `distribution_analysis_pipeline.py`.
+
+<details>
+<summary>Prefer plain pip?</summary>
+
+```bash
 python -m venv .venv
-source .venv/bin/activate         # Windows: .venv\Scripts\activate
+source .venv/bin/activate       # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-> Python ≥ 3.9 recommended. `sentence-transformers` and `umap-learn` are only
-> needed if you run `distribution_analysis_pipeline.py`.
+</details>
 
-### 2. Configure API keys
+### 3. Configure API keys
 
 Copy the template and fill in whichever providers you intend to use:
 
